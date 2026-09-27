@@ -9,14 +9,14 @@ export default function PlanTabs({ activeTab, onChange }: PlanTabsProps) {
       <button
         type="button"
         onClick={() => onChange("plan")}
-        className={`rounded-full px-4 py-2 text-xs font-black uppercase tracking-[0.14em] ${activeTab === "plan" ? "bg-[var(--fitlog-ink)] text-[var(--fitlog-paper)]" : "text-[var(--fitlog-muted)]"}`}
+        className={`rounded-xl px-5 py-2.5 text-xs font-black uppercase tracking-[0.14em] transition-all ${activeTab === "plan" ? "bg-[var(--fitlog-lime)] text-[var(--fitlog-deep)] shadow-md" : "border border-[var(--fitlog-line)] bg-[var(--fitlog-panel)] text-[var(--fitlog-muted)] hover:text-[var(--fitlog-paper)]"}`}
       >
         Today&apos;s Plan
       </button>
       <button
         type="button"
         onClick={() => onChange("saved")}
-        className={`rounded-full px-4 py-2 text-xs font-black uppercase tracking-[0.14em] ${activeTab === "saved" ? "bg-[var(--fitlog-ink)] text-[var(--fitlog-paper)]" : "text-[var(--fitlog-muted)]"}`}
+        className={`rounded-xl px-5 py-2.5 text-xs font-black uppercase tracking-[0.14em] transition-all ${activeTab === "saved" ? "bg-[var(--fitlog-lime)] text-[var(--fitlog-deep)] shadow-md" : "border border-[var(--fitlog-line)] bg-[var(--fitlog-panel)] text-[var(--fitlog-muted)] hover:text-[var(--fitlog-paper)]"}`}
       >
         Saved
       </button>

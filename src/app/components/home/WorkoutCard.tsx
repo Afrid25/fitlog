@@ -31,7 +31,7 @@ export default function WorkoutCard({ workout }: WorkoutCardProps) {
           {workout.muscleGroups.slice(0, 2).map((group) => (
             <span
               key={group}
-              className="bg-[var(--fitlog-lime)] px-3 py-1 text-[0.62rem] font-black uppercase tracking-[0.14em] text-[var(--fitlog-ink)] rounded-md"
+              className="bg-[var(--fitlog-lime)] px-3 py-1 text-[0.62rem] font-black uppercase tracking-[0.14em] text-[var(--fitlog-deep)] rounded-md"
             >
               {group}
             </span>

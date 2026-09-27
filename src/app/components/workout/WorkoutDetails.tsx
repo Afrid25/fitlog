@@ -10,45 +10,61 @@ type WorkoutDetailsProps = { workout: Workout };
 
 export default function WorkoutDetails({ workout }: WorkoutDetailsProps) {
   return (
-    <main className="mx-auto w-full max-w-7xl px-5 py-10 sm:px-8 lg:px-10 lg:py-16">
-      <Link
-        href="/#library"
-        className="mb-8 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.14em] text-[var(--fitlog-muted)] hover:text-[var(--fitlog-ink)]"
-      >
-        <ArrowLeft size={15} aria-hidden="true" /> Back to library
-      </Link>
-      <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
-        <div className="relative aspect-[4/3] overflow-hidden bg-[var(--fitlog-soft)] lg:aspect-auto lg:min-h-[620px]">
-          <Image
-            src={workout.image}
-            alt={workout.name}
-            fill
-            sizes="(max-width: 1024px) 100vw, 45vw"
-            className="object-cover"
-            priority
-          />
-        </div>
-        <div className="flex flex-col justify-center">
-          <div className="flex flex-wrap gap-2">
-            {workout.muscleGroups.map((group) => (
-              <span
-                key={group}
-                className="bg-[var(--fitlog-lime)] px-3 py-1 text-[0.62rem] font-black uppercase tracking-[0.14em]"
-              >
-                {group}
-              </span>
-            ))}
+    <main className="min-h-screen bg-[#111111] text-white flex flex-col justify-between">
+      <div className="mx-auto w-full max-w-6xl px-6 py-12">
+        {/* Back Link */}
+        <Link
+          href="/#library"
+          className="mb-8 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-zinc-400 hover:text-white transition-colors"
+        >
+          <ArrowLeft size={15} aria-hidden="true" /> Back to library
+        </Link>
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+          <div className="lg:col-span-5">
+            <div className="relative w-full h-[720px] rounded-3xl overflow-hidden bg-zinc-900 border border-zinc-800 shadow-2xl">
+              <Image
+                src={workout.image}
+                alt={workout.name}
+                fill
+                sizes="(max-width: 1024px) 100vw, 45vw"
+                className="object-cover"
+                priority
+              />
+            </div>
           </div>
-          <h1 className="mt-5 font-display text-5xl uppercase leading-[0.9] sm:text-7xl">
-            {workout.name}
-          </h1>
-          <p className="mt-6 max-w-xl text-base leading-7 text-[var(--fitlog-muted)]">
-            {workout.description}
-          </p>
-          <WorkoutSpecs workout={workout} />
-          <WorkoutInstructions instructions={workout.instructions} />
-          <div className="mt-10">
-            <WorkoutAction workout={workout} />
+
+          <div className="lg:col-span-7 flex flex-col space-y-5">
+            {/* Workout Name */}
+            <h1 className="text-4xl sm:text-5xl font-black uppercase tracking-tight text-white leading-none">
+              {workout.name}
+            </h1>
+            {/* Description */}
+            <p className="text-sm text-zinc-400 leading-relaxed max-w-xl">
+              {workout.description}
+            </p>
+
+            <div className="flex flex-wrap gap-2">
+              {workout.muscleGroups?.map((group) => (
+                <span
+                  key={group}
+                  className="bg-[#ccff00] px-3.5 py-1 text-[11px] font-black uppercase tracking-wider text-zinc-950 rounded-full"
+                >
+                  {group}
+                </span>
+              ))}
+            </div>
+
+            {/* Specs Table */}
+            <WorkoutSpecs workout={workout} />
+
+            {/* Instructions List */}
+            <WorkoutInstructions instructions={workout.instructions} />
+
+            {/* Action Buttons */}
+            <div className="pt-2">
+              <WorkoutAction workout={workout} />
+            </div>
           </div>
         </div>
       </div>

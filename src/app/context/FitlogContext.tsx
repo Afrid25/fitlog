@@ -99,7 +99,7 @@ export function FitlogProvider({ children }: { children: ReactNode }) {
 
     return <FitlogContext.Provider value={value}>
         {children}
-        {toast && <div role="status" aria-live="polite" className="fixed bottom-5 left-1/2 z-50 -translate-x-1/2 bg-[var(--fitlog-ink)] px-5 py-3 text-xs font-bold uppercase tracking-[0.12em] text-[var(--fitlog-paper)] shadow-xl">{toast}</div>}
+        {toast && <div role="status" aria-live="polite" className="fixed bottom-5 left-1/2 z-50 -translate-x-1/2 rounded-xl border border-[var(--fitlog-line)] border-l-4 border-l-[var(--fitlog-lime)] bg-[var(--fitlog-panel)] px-5 py-3 text-xs font-bold uppercase tracking-[0.12em] text-[var(--fitlog-paper)] shadow-2xl">{toast}</div>}
     </FitlogContext.Provider>;
 }
 

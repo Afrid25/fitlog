@@ -2,15 +2,17 @@
 @plugin "daisyui";
 
 :root {
-  --background: #f4f3ee;
-  --foreground: #151515;
+  --background: #0b0d0f;
+  --foreground: #f4f3ee;
   --fitlog-paper: #f4f3ee;
-  --fitlog-ink: #151515;
+  --fitlog-ink: #f4f3ee;
+  --fitlog-deep: #0b0d0f;
+  --fitlog-panel: #14181b;
   --fitlog-lime: #ccff00;
-  --fitlog-soft: #e8e7df;
-  --fitlog-line: #d5d4cc;
-  --fitlog-muted: #686861;
-  --fitlog-muted-light: #a7a79d;
+  --fitlog-soft: #1c2327;
+  --fitlog-line: #2b353a;
+  --fitlog-muted: #9aa5a5;
+  --fitlog-muted-light: #c0c8c3;
 }
 
 @theme inline {
@@ -21,7 +23,7 @@
 }
 
 body {
-  background: var(--background);
+  background: var(--fitlog-deep);
   color: var(--foreground);
   font-family: var(--font-geist-sans), sans-serif;
 }
@@ -71,7 +73,7 @@ html {
 }
 
 .fitlog-counter--filled strong {
-  background: var(--fitlog-ink);
+  background: var(--fitlog-deep);
   color: var(--fitlog-paper);
 }
 

@@ -16,7 +16,7 @@ export default function PlanWorkoutCard({
 
   return (
     <article
-      className={`flex flex-col gap-5 rounded-2xl border border-[var(--fitlog-line)] bg-[var(--fitlog-paper)] p-5 shadow-sm transition-shadow hover:shadow-lg sm:flex-row sm:items-center ${isDone ? "opacity-60" : ""}`}
+      className={`flex flex-col gap-5 rounded-2xl border border-[var(--fitlog-line)] bg-[var(--fitlog-panel)] p-5 shadow-sm transition-shadow hover:shadow-lg sm:flex-row sm:items-center ${isDone ? "opacity-60" : ""}`}
     >
       <div className="relative h-24 w-full shrink-0 overflow-hidden bg-[var(--fitlog-soft)] sm:w-32">
         <img
@@ -66,15 +66,14 @@ export default function PlanWorkoutCard({
         >
           View details
         </Link>
-        {!saved && (
+        {!saved && !isDone && (
           <button
             type="button"
             onClick={() => markAsDone(workout.id)}
-            disabled={isDone}
-            className="inline-flex items-center gap-1 rounded-lg bg-[var(--fitlog-lime)] px-3 py-2 text-[0.62rem] font-black uppercase tracking-[0.08em] disabled:cursor-default"
+            className="inline-flex items-center gap-1 rounded-lg bg-[var(--fitlog-lime)] px-3 py-2 text-[0.62rem] font-black uppercase tracking-[0.08em] text-[var(--fitlog-deep)] disabled:cursor-default"
           >
             <Check size={14} />
-            {isDone ? "Done" : "Mark as done"}
+            Mark as done
           </button>
         )}
         <button

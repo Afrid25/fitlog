@@ -13,10 +13,10 @@ export default function Loading() {
           <div className="mt-6 h-20 w-3/4 rounded bg-[var(--fitlog-soft)]" />
           <div className="mt-6 h-16 w-full rounded bg-[var(--fitlog-soft)]" />
           <div className="mt-10 grid grid-cols-2 gap-px bg-[var(--fitlog-line)] sm:grid-cols-4">
-            <div className="h-20 bg-[var(--fitlog-paper)]" />
-            <div className="h-20 bg-[var(--fitlog-paper)]" />
-            <div className="h-20 bg-[var(--fitlog-paper)]" />
-            <div className="h-20 bg-[var(--fitlog-paper)]" />
+            <div className="h-20 bg-[var(--fitlog-panel)]" />
+            <div className="h-20 bg-[var(--fitlog-panel)]" />
+            <div className="h-20 bg-[var(--fitlog-panel)]" />
+            <div className="h-20 bg-[var(--fitlog-panel)]" />
           </div>
           <p className="mt-8 text-xs font-bold uppercase tracking-[0.16em] text-[var(--fitlog-muted)]">
             Loading workout...

@@ -11,7 +11,7 @@ export default function EmptyPlan({ saved = false }: { saved?: boolean }) {
       </p>
       <Link
         href="/#library"
-        className="mt-7 inline-flex bg-[var(--fitlog-lime)] px-5 py-3 text-xs font-black uppercase tracking-[0.12em]"
+        className="mt-7 inline-flex bg-[var(--fitlog-lime)] px-5 py-3 text-xs font-black uppercase tracking-[0.12em] text-[var(--fitlog-deep)]"
       >
         Go to workouts
       </Link>

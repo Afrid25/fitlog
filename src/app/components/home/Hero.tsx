@@ -4,7 +4,7 @@ import { ArrowDownRight } from "lucide-react";
 
 export default function Hero() {
     return (
-        <section className="bg-[var(--fitlog-ink)] px-4 py-8 text-[var(--fitlog-paper)] sm:px-6 lg:px-8" aria-labelledby="hero-title">
+        <section className="bg-[var(--fitlog-deep)] px-4 py-8 text-[var(--fitlog-paper)] sm:px-6 lg:px-8" aria-labelledby="hero-title">
            
             <div className="card mx-auto w-full max-w-7xl rounded-3xl border border-white/10 bg-[#141619] shadow-2xl overflow-hidden">
                 <div className="grid items-center lg:grid-cols-[1.1fr_0.9fr]">
@@ -28,7 +28,7 @@ export default function Hero() {
                             <div className="card-actions mt-8">
                                 <Link 
                                     href="#library" 
-                                    className="btn border-none bg-[var(--fitlog-lime)] px-6 py-4 text-xs font-black uppercase tracking-[0.12em] text-[var(--fitlog-ink)] hover:opacity-90 hover:-translate-y-1 transition-transform shadow-lg shadow-[var(--fitlog-lime)]/10 rounded-none"
+                                    className="btn border-none bg-[var(--fitlog-lime)] px-6 py-4 text-xs font-black uppercase tracking-[0.12em] text-[var(--fitlog-deep)] hover:opacity-90 hover:-translate-y-1 transition-transform shadow-lg shadow-[var(--fitlog-lime)]/10 rounded-none"
                                 >
                                     Browse workouts
                                     <ArrowDownRight size={18} strokeWidth={2.5} aria-hidden="true" className="transition-transform group-hover:translate-x-0.5 group-hover:translate-y-0.5" />
