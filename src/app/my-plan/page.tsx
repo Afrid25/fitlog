@@ -14,10 +14,14 @@ export default function MyPlanPage() {
   const [activeTab, setActiveTab] = useState<"plan" | "saved">("plan");
   const [sort, setSort] = useState<SortOption>("duration");
   const current = activeTab === "plan" ? plan : saved;
+  const sortValues = {
+    duration: (workout: (typeof current)[number]) => workout.duration,
+    calories: (workout: (typeof current)[number]) => workout.caloriesBurned,
+    rating: (workout: (typeof current)[number]) => workout.rating,
+  };
+  const getSortValue = sortValues[sort];
   const sorted = [...current].sort(
-    (first, second) =>
-      second[sort === "calories" ? "caloriesBurned" : sort] -
-      first[sort === "calories" ? "caloriesBurned" : sort],
+    (first, second) => getSortValue(second) - getSortValue(first),
   );
 
   return (
