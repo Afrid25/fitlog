@@ -5,7 +5,7 @@ import { ArrowDownRight } from "lucide-react";
 export default function Hero() {
     return (
         <section className="bg-[var(--fitlog-ink)] px-4 py-8 text-[var(--fitlog-paper)] sm:px-6 lg:px-8" aria-labelledby="hero-title">
-            {/* DaisyUI Card Container resembling the Figma frame */}
+           
             <div className="card mx-auto w-full max-w-7xl rounded-3xl border border-white/10 bg-[#141619] shadow-2xl overflow-hidden">
                 <div className="grid items-center lg:grid-cols-[1.1fr_0.9fr]">
                     

@@ -3,44 +3,14 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { useFitlog } from "../../context/FitlogContext";
 import Logo from "./Logo";
-
-const PLAN_STORAGE_KEY = "fitlog-plan";
-const SAVED_STORAGE_KEY = "fitlog-saved";
-
-function readCount(key: string) {
-    if (typeof window === "undefined") return 0;
-
-    try {
-        const value = JSON.parse(window.localStorage.getItem(key) ?? "[]");
-        return Array.isArray(value) ? value.length : 0;
-    } catch {
-        return 0;
-    }
-}
 
 export default function Navbar() {
     const pathname = usePathname();
     const [isOpen, setIsOpen] = useState(false);
-    const [counts, setCounts] = useState({ plan: 0, saved: 0 });
-
-    useEffect(() => {
-        const updateCounts = () => {
-            setCounts({
-                plan: readCount(PLAN_STORAGE_KEY),
-                saved: readCount(SAVED_STORAGE_KEY),
-            });
-        };
-
-        updateCounts();
-        window.addEventListener("storage", updateCounts);
-        window.addEventListener("fitlog:counts-updated", updateCounts);
-        return () => {
-            window.removeEventListener("storage", updateCounts);
-            window.removeEventListener("fitlog:counts-updated", updateCounts);
-        };
-    }, []);
+    const { plan, saved } = useFitlog();
 
     const links = [
         { href: "/", label: "Workout" },
@@ -50,12 +20,12 @@ export default function Navbar() {
     return (
         <header className="sticky top-0 z-40 border-b border-[var(--fitlog-line)] bg-[var(--fitlog-paper)]/95 backdrop-blur">
             <div className="navbar mx-auto min-h-20 w-full max-w-7xl px-5 sm:px-8 lg:px-10">
-                {/* Navbar Start / Logo */}
+                {/* Navbar Start / Logo from the home page */}
                 <div className="navbar-start">
                     <Logo />
                 </div>
 
-                {/* Navbar Center / Desktop Menu */}
+                {/* Navbar Center - Desktop Menu */}
                 <div className="navbar-center hidden md:flex">
                     <div className="flex items-center gap-2">
                         {links.map((link) => {
@@ -77,14 +47,14 @@ export default function Navbar() {
                     </div>
                 </div>
 
-                {/* Navbar End / Badges & Mobile Menu Toggle */}
+                {/* Navbar End - Badges & Mobile Menu Toggle */}
                 <div className="navbar-end gap-3">
                     <div className="hidden items-center gap-2 sm:flex">
-                        <Link href="/my-plan" className="fitlog-counter fitlog-counter--filled" aria-label={`${counts.plan} items in today's plan`}>
-                            <span>Plan</span><strong>{counts.plan}</strong>
+                        <Link href="/my-plan" className="fitlog-counter fitlog-counter--filled" aria-label={`${plan.length} items in today's plan`}>
+                            <span>Plan</span><strong>{plan.length}</strong>
                         </Link>
-                        <Link href="/my-plan" className="fitlog-counter" aria-label={`${counts.saved} saved workouts`}>
-                            <span>Saved</span><strong>{counts.saved}</strong>
+                        <Link href="/my-plan" className="fitlog-counter" aria-label={`${saved.length} saved workouts`}>
+                            <span>Saved</span><strong>{saved.length}</strong>
                         </Link>
                     </div>
 
@@ -100,7 +70,7 @@ export default function Navbar() {
                 </div>
             </div>
 
-            {/* Mobile Menu Dropdown */}
+            {/* Mobile Menu responsive */}
             {isOpen && (
                 <div className="border-t border-[var(--fitlog-line)] bg-[var(--fitlog-paper)] px-5 pb-5 pt-3 md:hidden shadow-lg animate-fadeIn">
                     <div className="flex flex-col gap-2">
@@ -111,10 +81,10 @@ export default function Navbar() {
                         ))}
                         <div className="mt-2 flex gap-2">
                             <Link href="/my-plan" onClick={() => setIsOpen(false)} className="fitlog-counter fitlog-counter--filled flex-1 justify-center py-2">
-                                <span>Plan</span><strong>{counts.plan}</strong>
+                                <span>Plan</span><strong>{plan.length}</strong>
                             </Link>
                             <Link href="/my-plan" onClick={() => setIsOpen(false)} className="fitlog-counter flex-1 justify-center py-2">
-                                <span>Saved</span><strong>{counts.saved}</strong>
+                                <span>Saved</span><strong>{saved.length}</strong>
                             </Link>
                         </div>
                     </div>

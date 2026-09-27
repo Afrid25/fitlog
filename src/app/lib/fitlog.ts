@@ -29,3 +29,15 @@ export async function getWorkouts(): Promise<Workout[]> {
 
   return data as Workout[];
 }
+
+export async function getWorkout(id: string): Promise<Workout | null> {
+  const response = await fetch(`${FITLOG_API_URL}/${id}`, {
+    cache: "no-store",
+  });
+  if (response.status === 404) return null;
+  if (!response.ok)
+    throw new Error("Workout details are unavailable right now.");
+
+  const data: unknown = await response.json();
+  return data && typeof data === "object" ? (data as Workout) : null;
+}
