@@ -13,13 +13,17 @@ export default function SortDropdown({ value, onChange }: SortDropdownProps) {
     return (
         <label className="flex items-center gap-3 text-xs font-bold uppercase tracking-[0.14em] text-[var(--fitlog-muted)]">
             Sort by
-            <span className="relative">
-                <select value={value} onChange={(event) => onChange(event.target.value as SortOption)} className="appearance-none border border-[var(--fitlog-line)] bg-transparent py-3 pl-4 pr-10 text-xs font-bold uppercase tracking-[0.1em] text-[var(--fitlog-ink)] outline-none transition-colors hover:border-[var(--fitlog-ink)]">
-                    <option value="duration">Duration</option>
-                    <option value="calories">Calories</option>
-                    <option value="rating">Rating</option>
+            <span className="relative inline-block">
+                <select 
+                    value={value} 
+                    onChange={(event) => onChange(event.target.value as SortOption)} 
+                    className="appearance-none border border-zinc-700 bg-[#18181b] py-3 pl-4 pr-10 text-xs font-bold uppercase tracking-[0.1em] text-white outline-none transition-colors hover:border-[#ccff00] rounded-xl cursor-pointer"
+                >
+                    <option value="duration" className="bg-[#18181b] text-white">Duration</option>
+                    <option value="calories" className="bg-[#18181b] text-white">Calories</option>
+                    <option value="rating" className="bg-[#18181b] text-white">Rating</option>
                 </select>
-                <ChevronDown size={15} aria-hidden="true" className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2" />
+                <ChevronDown size={15} aria-hidden="true" className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-zinc-400" />
             </span>
         </label>
     );
