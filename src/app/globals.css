@@ -1,8 +1,15 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f4f3ee;
+  --foreground: #151515;
+  --fitlog-paper: #f4f3ee;
+  --fitlog-ink: #151515;
+  --fitlog-lime: #ccff00;
+  --fitlog-soft: #e8e7df;
+  --fitlog-line: #d5d4cc;
+  --fitlog-muted: #686861;
+  --fitlog-muted-light: #a7a79d;
 }
 
 @theme inline {
@@ -12,15 +19,53 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), sans-serif;
+}
+
+.font-display {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+
+.fitlog-counter {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  border: 1px solid var(--fitlog-line);
+  border-radius: 999px;
+  padding: 0.5rem 0.75rem;
+  color: var(--fitlog-ink);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: transform 160ms ease, border-color 160ms ease;
+}
+
+.fitlog-counter:hover {
+  border-color: var(--fitlog-ink);
+  transform: translateY(-1px);
+}
+
+.fitlog-counter strong {
+  display: grid;
+  min-width: 1.35rem;
+  height: 1.35rem;
+  place-items: center;
+  border-radius: 999px;
+  background: var(--fitlog-soft);
+  font-size: 0.7rem;
+  letter-spacing: 0;
+}
+
+.fitlog-counter--filled {
+  border-color: var(--fitlog-lime);
+  background: var(--fitlog-lime);
+}
+
+.fitlog-counter--filled strong {
+  background: var(--fitlog-ink);
+  color: var(--fitlog-paper);
 }

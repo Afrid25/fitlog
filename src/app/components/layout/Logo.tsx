@@ -1,11 +1,24 @@
-import React from 'react';
+import Link from "next/link";
+import { Dumbbell } from "lucide-react";
 
-const LogoPage = () => {
-    return (
-        <div>
-            
-        </div>
-    );
+type LogoProps = {
+    compact?: boolean;
+    inverted?: boolean;
 };
 
-export default LogoPage;
+export default function Logo({ compact = false, inverted = false }: LogoProps) {
+    return (
+        <Link
+            href="/"
+            aria-label="FitLog home"
+            className={`group inline-flex items-center gap-2 ${inverted ? "text-[var(--fitlog-paper)]" : "text-[var(--fitlog-ink)]"}`}
+        >
+            <span className="grid size-9 place-items-center rounded-full bg-[var(--fitlog-lime)] text-[var(--fitlog-ink)] transition-transform group-hover:rotate-6">
+                <Dumbbell size={18} strokeWidth={2.5} aria-hidden="true" />
+            </span>
+            <span className={compact ? "sr-only" : "font-display text-lg font-bold tracking-[0.16em]"}>
+                FITLOG
+            </span>
+        </Link>
+    );
+}
