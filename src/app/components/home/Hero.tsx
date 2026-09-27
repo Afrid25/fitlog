@@ -4,12 +4,13 @@ import { ArrowDownRight } from "lucide-react";
 
 export default function Hero() {
     return (
-        <section className="relative bg-[var(--fitlog-ink)] px-4 py-8 text-[var(--fitlog-paper)] sm:px-6 lg:px-8" aria-labelledby="hero-title">
-            <div className="mx-auto w-full max-w-7xl rounded-3xl border border-white/10 bg-[#141619] overflow-hidden shadow-2xl">
+        <section className="bg-[var(--fitlog-ink)] px-4 py-8 text-[var(--fitlog-paper)] sm:px-6 lg:px-8" aria-labelledby="hero-title">
+            {/* DaisyUI Card Container resembling the Figma frame */}
+            <div className="card mx-auto w-full max-w-7xl rounded-3xl border border-white/10 bg-[#141619] shadow-2xl overflow-hidden">
                 <div className="grid items-center lg:grid-cols-[1.1fr_0.9fr]">
                     
                     {/* Left Content */}
-                    <div className="flex flex-col justify-center px-6 py-12 sm:px-12 lg:px-16 lg:py-20">
+                    <div className="card-body justify-center px-6 py-12 sm:px-12 lg:px-16 lg:py-20">
                         <div className="max-w-xl">
                             <p className="mb-6 text-xs font-bold uppercase tracking-[0.22em] text-[var(--fitlog-lime)]">
                                 Workout Library
@@ -24,10 +25,10 @@ export default function Hero() {
                                 FitLog is a dark, no-nonsense gym companion: pick a lift, lock it into today&apos;s plan, and watch the week&apos;s work add up.
                             </p>
                             
-                            <div className="mt-8 flex flex-wrap items-center gap-5">
+                            <div className="card-actions mt-8">
                                 <Link 
                                     href="#library" 
-                                    className="group inline-flex items-center gap-3 bg-[var(--fitlog-lime)] px-6 py-4 text-xs font-black uppercase tracking-[0.12em] text-[var(--fitlog-ink)] transition-transform hover:-translate-y-1 shadow-lg shadow-[var(--fitlog-lime)]/10"
+                                    className="btn border-none bg-[var(--fitlog-lime)] px-6 py-4 text-xs font-black uppercase tracking-[0.12em] text-[var(--fitlog-ink)] hover:opacity-90 hover:-translate-y-1 transition-transform shadow-lg shadow-[var(--fitlog-lime)]/10 rounded-none"
                                 >
                                     Browse workouts
                                     <ArrowDownRight size={18} strokeWidth={2.5} aria-hidden="true" className="transition-transform group-hover:translate-x-0.5 group-hover:translate-y-0.5" />
@@ -36,7 +37,7 @@ export default function Hero() {
                         </div>
                     </div>
 
-                    {/* Right Image Container (Figma Style) */}
+                    {/* Right Image Container */}
                     <div className="relative flex items-center justify-center p-6 sm:p-10 lg:p-12">
                         <div className="relative h-[320px] w-full sm:h-[400px] lg:h-[460px]">
                             <Image 
