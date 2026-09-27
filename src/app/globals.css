@@ -69,3 +69,16 @@ body {
   background: var(--fitlog-ink);
   color: var(--fitlog-paper);
 }
+
+@keyframes fitlog-reveal {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fitlog-reveal {
+  animation: fitlog-reveal 700ms ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fitlog-reveal { animation: none; }
+}
